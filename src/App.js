@@ -1,23 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import { useContext, useEffect } from "react";
+import "./App.css";
+import DashBoard from "./components/dataTable/Dashboard";
+import { GameContext } from "./context/GameProvider";
+import { TeamContext } from "./context/TeamProvider";
 
 function App() {
+  const { setAllGame } = useContext(GameContext);
+  const { setTeamData } = useContext(TeamContext);
+  useEffect(() => {
+    // load team data
+    fetch("https://www.balldontlie.io/api/v1/teams")
+      .then((res) => res.json())
+      .then((res) => {
+        setTeamData(res.data);
+      });
+      // load game data
+      fetch("https://www.balldontlie.io/api/v1/games")
+      .then((res) => res.json())
+      .then((res) => {
+        setAllGame(res.data);
+      });
+  },[]);
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="container App pt-4">
+      <DashBoard />
     </div>
   );
 }

@@ -1,13 +1,19 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import GameProvide from "./context/GameProvider";
+import TeamProvide from "./context/TeamProvider";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <GameProvide>
+      <TeamProvide>
+        <App />
+      </TeamProvide>
+    </GameProvide>
   </React.StrictMode>
 );
 
