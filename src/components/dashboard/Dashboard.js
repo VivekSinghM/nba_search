@@ -1,13 +1,12 @@
-import { useContext, useEffect, useMemo, useState } from "react";
-import { data } from "./jsonData";
+import { useContext, useMemo, useState } from "react";
 import Table from "./table/Table";
-import "./dt.css";
+import "./db.css";
 import Sidebar from "../UI/sidebar/Sidebar";
 import Pagination from "../UI/pagination/Pagination";
 import Search from "../UI/search/Search";
 import { TeamContext } from "../../context/TeamProvider";
 
-const DashBoard = (props) => {
+const Dashboard = (props) => {
   const { allTeam, totalTeams } = useContext(TeamContext);
   const [search, setSearch] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
@@ -81,4 +80,4 @@ const DashBoard = (props) => {
   );
 };
 
-export default DashBoard;
+export default Dashboard;

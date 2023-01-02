@@ -1,6 +1,6 @@
 import { useContext, useEffect } from "react";
 import "./App.css";
-import DashBoard from "./components/dataTable/Dashboard";
+import Dashboard from "./components/dashboard/Dashboard";
 import { GameContext } from "./context/GameProvider";
 import { TeamContext } from "./context/TeamProvider";
 
@@ -23,7 +23,7 @@ function App() {
   },[]);
   return (
     <div className="container App pt-4">
-      <DashBoard />
+      <Dashboard />
     </div>
   );
 }

@@ -1,5 +1,3 @@
-import { useState } from "react";
-import Pagination from "../../UI/pagination/Pagination";
 
 const Table = (props) => {
   let tBody = [];
@@ -31,7 +29,6 @@ const Table = (props) => {
       temp.field = e;
       temp.order = false;
     }
-    console.log(temp);
     props.setSorting(temp);
   };
 

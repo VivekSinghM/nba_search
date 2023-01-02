@@ -15,7 +15,6 @@ function Sidebar(props) {
     )
       .then((res) => res.json())
       .then((res) => {
-        console.log(res.data);
         setGames(res.data.length);
       });
   }, []);
