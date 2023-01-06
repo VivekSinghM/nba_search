@@ -4,19 +4,21 @@ function Pagination(props) {
   const totalPages = Math.ceil(props.totalItems / props.itemsPerPage);
   const pageItems = [
     <li key={1} className={`page-item mr-4`}>
-      <button className="page-link pt-1 pb-1" style={{ borderRadius: "0.25rem" }}>
+      <button
+        className="page-link pt-1 pb-1"
+        style={{ borderRadius: "0.25rem" }}
+        data-cy="first-p"
+      >
         {1}
       </button>
     </li>,
   ];
   if (totalPages > 1) {
     pageItems.push(
-      <li
-        className={`page-item mr-4`}
-        key={2}
-      >
+      <li className={`page-item mr-4`} key={2}>
         <button
           className="page-link pt-1 pb-1"
+          data-cy="last-p"
           style={{ borderRadius: "0.25rem" }}
         >
           {totalPages}
@@ -36,11 +38,15 @@ function Pagination(props) {
     }
   };
   return (
-    <nav aria-label="Page navigation" style={{marginTop:'1em!important'}}>
-      <ul data-cy="pagination" className="pagination d-flex justify-content-end">
+    <nav aria-label="Page navigation" style={{ marginTop: "1em!important" }}>
+      <ul
+        data-cy="pagination"
+        className="pagination d-flex justify-content-end"
+      >
         <li className="page-item  mr-4">
           <button
             className="page-link pt-1 pb-1"
+            data-cy="prev-p"
             onClick={handlePrev}
             style={{ borderRadius: "0.25rem" }}
             aria-label="Previous"
@@ -53,6 +59,7 @@ function Pagination(props) {
         <li className="page-item">
           <button
             className="page-link pt-1 pb-1"
+            data-cy="next-p"
             style={{ borderRadius: "0.25rem" }}
             onClick={handleNext}
             aria-label="Next"
