@@ -4,7 +4,9 @@
     background-color: #004589;
     border-color: #004589;
 }
-.page-link {
-    color: #004589;
+.page-item:hover .page-link, .page-link{
+    font-weight: 700;
+    color: #fff;
+    background-color: #004589;
     border-color: #004589;
 }

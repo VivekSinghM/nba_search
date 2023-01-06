@@ -1,21 +1,25 @@
-import React, { useEffect, useMemo } from "react";
-import './Pagination.css'
+import "./Pagination.css";
 
 function Pagination(props) {
   const totalPages = Math.ceil(props.totalItems / props.itemsPerPage);
-  const pageItems = [];
-  for (let i = 1; i <= totalPages; i++) {
+  const pageItems = [
+    <li key={1} className={`page-item mr-4`}>
+      <button className="page-link pt-1 pb-1" style={{ borderRadius: "0.25rem" }}>
+        {1}
+      </button>
+    </li>,
+  ];
+  if (totalPages > 1) {
     pageItems.push(
       <li
-        className={`page-item mr-2 ${i === props.currentPage ? "active" : ""}`}
-        key={i}
+        className={`page-item mr-4`}
+        key={2}
       >
         <button
-          className="page-link"
+          className="page-link pt-1 pb-1"
           style={{ borderRadius: "0.25rem" }}
-          onClick={() => props.goTo(i)}
         >
-          {i}
+          {totalPages}
         </button>
       </li>
     );
@@ -32,11 +36,11 @@ function Pagination(props) {
     }
   };
   return (
-    <nav aria-label="Page navigation ">
-      <ul className="pagination d-flex justify-content-end">
-        <li className="page-item  mr-2">
+    <nav aria-label="Page navigation" style={{marginTop:'1em!important'}}>
+      <ul data-cy="pagination" className="pagination d-flex justify-content-end">
+        <li className="page-item  mr-4">
           <button
-            className="page-link"
+            className="page-link pt-1 pb-1"
             onClick={handlePrev}
             style={{ borderRadius: "0.25rem" }}
             aria-label="Previous"
@@ -46,9 +50,9 @@ function Pagination(props) {
           </button>
         </li>
         {pageItems}
-        <li className="page-item  mr-2">
+        <li className="page-item">
           <button
-            className="page-link"
+            className="page-link pt-1 pb-1"
             style={{ borderRadius: "0.25rem" }}
             onClick={handleNext}
             aria-label="Next"

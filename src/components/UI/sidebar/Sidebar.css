@@ -1,4 +1,6 @@
 td{
-    padding-top: 10px;
-    padding-bottom: 10px;
+    padding: .5em
+}
+.sb{
+    padding-left: 1em;
 }

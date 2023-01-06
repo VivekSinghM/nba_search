@@ -1,0 +1,12 @@
+.table{
+    border-collapse: separate;
+    border-spacing:0 5px;
+}
+.table td{
+    border: 0;
+}
+.table th div{
+    display: flex;
+    align-items: self-end;
+    justify-content: center;
+}
